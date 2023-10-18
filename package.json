@@ -13,7 +13,7 @@
     "dev": "concurrently -k \"pnpm start\" \"pnpm electron\"",
     "prettier": "prettier --write .",
     "prepare": "husky install",
-    "commit": "git add . && git-cz"
+    "commit": "git add . && git cz"
   },
   "build": {
     "appId": "com.rain.rainmusic",
@@ -58,6 +58,7 @@
     "commitizen": "^4.3.0",
     "concurrently": "^8.2.1",
     "cross-env": "^7.0.3",
+    "cz-conventional-changelog": "^3.3.0",
     "cz-customizable": "^7.0.0",
     "electron": "^27.0.0",
     "electron-builder": "^24.6.4",

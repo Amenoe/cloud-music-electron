@@ -46,6 +46,9 @@ devDependencies:
   cross-env:
     specifier: ^7.0.3
     version: 7.0.3
+  cz-conventional-changelog:
+    specifier: ^3.3.0
+    version: 3.3.0
   cz-customizable:
     specifier: ^7.0.0
     version: 7.0.0
@@ -425,7 +428,7 @@ packages:
       lodash.merge: 4.6.2
       lodash.uniq: 4.5.0
       resolve-from: 5.0.0
-      ts-node: 10.9.1(@types/node@20.8.6)(typescript@5.0.2)
+      ts-node: 10.9.1(@types/node@20.5.1)(typescript@5.0.2)
       typescript: 5.0.2
     transitivePeerDependencies:
       - '@swc/core'
@@ -1954,7 +1957,7 @@ packages:
     dependencies:
       '@types/node': 20.5.1
       cosmiconfig: 8.3.6(typescript@5.0.2)
-      ts-node: 10.9.1(@types/node@20.8.6)(typescript@5.0.2)
+      ts-node: 10.9.1(@types/node@20.5.1)(typescript@5.0.2)
       typescript: 5.0.2
     dev: true
 
@@ -4793,7 +4796,7 @@ packages:
       typescript: 5.0.2
     dev: true
 
-  /ts-node@10.9.1(@types/node@20.8.6)(typescript@5.0.2):
+  /ts-node@10.9.1(@types/node@20.5.1)(typescript@5.0.2):
     resolution: {integrity: sha512-NtVysVPkxxrwFGUUxGYhfux8k78pQB3JqYBXlLRZgdGUqTO5wU/UyHop5p70iEbGhB7q5KmiZiU0Y3KlJrScEw==}
     hasBin: true
     peerDependencies:
@@ -4812,7 +4815,7 @@ packages:
       '@tsconfig/node12': 1.0.11
       '@tsconfig/node14': 1.0.3
       '@tsconfig/node16': 1.0.4
-      '@types/node': 20.8.6
+      '@types/node': 20.5.1
       acorn: 8.10.0
       acorn-walk: 8.2.0
       arg: 4.1.3
