@@ -11,7 +11,8 @@
     "electron": "wait-on tcp:5173 && cross-env NODE_ENV=development electron .",
     "electron:build": "vite build && electron-builder",
     "dev": "concurrently -k \"pnpm start\" \"pnpm electron\"",
-    "prettier": "prettier --write ."
+    "prettier": "prettier --write .",
+    "prepare": "husky install"
   },
   "build": {
     "appId": "com.rain.rainmusic",
@@ -46,23 +47,47 @@
     "react-dom": "^18.2.0"
   },
   "devDependencies": {
-    "@types/react": "^18.2.15",
-    "@types/react-dom": "^18.2.7",
-    "@typescript-eslint/eslint-plugin": "^6.0.0",
-    "@typescript-eslint/parser": "^6.0.0",
-    "@vitejs/plugin-react": "^4.0.3",
+    "@commitlint/cli": "^17.8.0",
+    "@commitlint/config-conventional": "^17.8.0",
+    "@commitlint/cz-commitlint": "^17.8.0",
+    "@types/react": "^18.2.28",
+    "@types/react-dom": "^18.2.13",
+    "@typescript-eslint/eslint-plugin": "^6.8.0",
+    "@typescript-eslint/parser": "^6.8.0",
+    "@vitejs/plugin-react": "^4.1.0",
+    "commitizen": "^4.3.0",
     "concurrently": "^8.2.1",
     "cross-env": "^7.0.3",
+    "cz-conventional-changelog": "^3.3.0",
     "electron": "^27.0.0",
     "electron-builder": "^24.6.4",
-    "eslint": "^8.45.0",
+    "eslint": "^8.51.0",
     "eslint-config-prettier": "^9.0.0",
     "eslint-plugin-prettier": "^5.0.1",
     "eslint-plugin-react-hooks": "^4.6.0",
     "eslint-plugin-react-refresh": "^0.4.3",
+    "husky": "^8.0.3",
+    "lint-staged": "^15.0.1",
     "prettier": "^3.0.3",
     "typescript": "^5.0.2",
-    "vite": "^4.4.5",
+    "vite": "^4.5.0",
     "wait-on": "^7.0.1"
+  },
+  "lint-staged": {
+    "src/**/*.{css,scss}": [
+      "prettier --write --parser css",
+      "git add --all"
+    ],
+    "src/**/*.{ts,tsx,js}": [
+      "eslint --fix",
+      "prettier --write",
+      "git add --all",
+      "npx git-cz"
+    ]
+  },
+  "config": {
+    "commitizen": {
+      "path": "@commitlint/cz-commitlint"
+    }
   }
 }
