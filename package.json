@@ -81,8 +81,7 @@
     "src/**/*.{ts,tsx,js}": [
       "eslint --fix",
       "prettier --write",
-      "git add --all",
-      "npx git-cz"
+      "git add --all"
     ]
   },
   "config": {

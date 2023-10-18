@@ -1,7 +1,12 @@
 import React, { memo } from 'react'
 
 const App = memo(() => {
-  return <div>App</div>
+  const name = 'a'
+  return (
+    <div>
+      App <h2>{name}</h2>
+    </div>
+  )
 })
 
 export default App
