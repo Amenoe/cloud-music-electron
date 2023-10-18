@@ -4,15 +4,16 @@
 const { app, BrowserWindow } = require('electron')
 const path = require('path')
 
-const NODE_ENV = process.env.NODE_ENV  //新增
+const NODE_ENV = process.env.NODE_ENV //新增
 
 function createWindow() {
   // 创建浏览器窗口
   const mainWindow = new BrowserWindow({
     width: 800,
     height: 600,
+    icon: path.join(__dirname, '../public/favicon.ico'),
     webPreferences: {
-      preload: path.join(__dirname, 'preload.js')
+      preload: path.join(__dirname, 'preload.ts')
     }
   })
 
@@ -23,9 +24,9 @@ function createWindow() {
     NODE_ENV === 'development'
       ? 'http://localhost:5173'
       : `file://${path.join(__dirname, '../dist/index.html')}`
-  ); // 新增
+  ) // 新增
   // 打开开发工具
-  if (NODE_ENV === "development") {
+  if (NODE_ENV === 'development') {
     mainWindow.webContents.openDevTools()
   } // 新增
 }
@@ -46,7 +47,6 @@ app.whenReady().then(() => {
 // 除了 macOS 外，当所有窗口都被关闭的时候退出程序。 因此，通常对程序和它们在
 // 任务栏上的图标来说，应当保持活跃状态，直到用户使用 Cmd + Q 退出。
 app.on('window-all-closed', function () {
-
   // process是node的全局模块，作用比较直观。可以通过它来获得node进程相关的信息，比如运行node程序时的命令行参数。或者设置进程相关信息，比如设置环境变量
   if (process.platform !== 'darwin') app.quit()
 })

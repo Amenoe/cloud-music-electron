@@ -10,14 +10,22 @@
     "preview": "vite preview",
     "electron": "wait-on tcp:5173 && cross-env NODE_ENV=development electron .",
     "electron:build": "vite build && electron-builder",
-    "dev": "concurrently -k \"pnpm start\" \"pnpm electron\""
+    "dev": "concurrently -k \"pnpm start\" \"pnpm electron\"",
+    "prettier": "prettier --write ."
   },
   "build": {
     "appId": "com.rain.rainmusic",
     "productName": "RainMusic",
     "copyright": "Copyright © 2021 rain-music",
-    "mac": {
-      "category": "public.app-category.utilities"
+    "win": {
+      "target": [
+        {
+          "target": "nsis",
+          "arch": [
+            "ia32"
+          ]
+        }
+      ]
     },
     "nsis": {
       "oneClick": false,
@@ -34,7 +42,6 @@
   },
   "dependencies": {
     "@types/node": "^20.8.6",
-    "electron": "^27.0.0",
     "react": "^18.2.0",
     "react-dom": "^18.2.0"
   },
@@ -46,10 +53,14 @@
     "@vitejs/plugin-react": "^4.0.3",
     "concurrently": "^8.2.1",
     "cross-env": "^7.0.3",
+    "electron": "^27.0.0",
     "electron-builder": "^24.6.4",
     "eslint": "^8.45.0",
+    "eslint-config-prettier": "^9.0.0",
+    "eslint-plugin-prettier": "^5.0.1",
     "eslint-plugin-react-hooks": "^4.6.0",
     "eslint-plugin-react-refresh": "^0.4.3",
+    "prettier": "^3.0.3",
     "typescript": "^5.0.2",
     "vite": "^4.4.5",
     "wait-on": "^7.0.1"
