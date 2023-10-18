@@ -12,7 +12,8 @@
     "electron:build": "vite build && electron-builder",
     "dev": "concurrently -k \"pnpm start\" \"pnpm electron\"",
     "prettier": "prettier --write .",
-    "prepare": "husky install"
+    "prepare": "husky install",
+    "commit": "git add . && git-cz"
   },
   "build": {
     "appId": "com.rain.rainmusic",
@@ -49,7 +50,6 @@
   "devDependencies": {
     "@commitlint/cli": "^17.8.0",
     "@commitlint/config-conventional": "^17.8.0",
-    "@commitlint/cz-commitlint": "^17.8.0",
     "@types/react": "^18.2.28",
     "@types/react-dom": "^18.2.13",
     "@typescript-eslint/eslint-plugin": "^6.8.0",
@@ -58,7 +58,7 @@
     "commitizen": "^4.3.0",
     "concurrently": "^8.2.1",
     "cross-env": "^7.0.3",
-    "cz-conventional-changelog": "^3.3.0",
+    "cz-customizable": "^7.0.0",
     "electron": "^27.0.0",
     "electron-builder": "^24.6.4",
     "eslint": "^8.51.0",
@@ -87,7 +87,10 @@
   },
   "config": {
     "commitizen": {
-      "path": "@commitlint/cz-commitlint"
+      "path": "cz-customizable"
+    },
+    "cz-customizable": {
+      "config": ".cz-config.cjs"
     }
   }
 }
