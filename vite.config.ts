@@ -6,9 +6,18 @@ import path from 'path'
 export default defineConfig({
   base: './',
   plugins: [react()],
+  envDir: 'env',
   resolve: {
     alias: {
       '@': path.resolve(__dirname, 'src')
+    }
+  },
+  css: {
+    preprocessorOptions: {
+      less: {
+        javascriptEnabled: true,
+        additionalData: `@import "@/assets/css/var.less";`
+      }
     }
   }
 })
