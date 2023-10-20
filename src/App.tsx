@@ -1,13 +1,15 @@
 import React, { memo } from 'react'
-import { Button } from 'antd'
-import { useRoutes } from 'react-router-dom'
+import { Link, useRoutes } from 'react-router-dom'
 import routes from './routes'
 const App = memo(() => {
   return (
     <div>
       <h2>App</h2>
-      <Button type="primary">antd按钮</Button>
-      {useRoutes(routes)}
+      <Link to={'/discover'}>发现音乐</Link>
+      <Link to={'/mine'}>我的音乐</Link>
+      <Link to={'/friend'}>关注</Link>
+      <Link to={'/download'}>下载客户端</Link>
+      <div className="main">{useRoutes(routes)}</div>
     </div>
   )
 })
