@@ -1,4 +1,4 @@
-import React, { memo } from 'react'
+import React, { Suspense, memo } from 'react'
 import { Link, useRoutes } from 'react-router-dom'
 import routes from './routes'
 const App = memo(() => {
@@ -9,7 +9,9 @@ const App = memo(() => {
       <Link to={'/mine'}>我的音乐</Link>
       <Link to={'/friend'}>关注</Link>
       <Link to={'/download'}>下载客户端</Link>
-      <div className="main">{useRoutes(routes)}</div>
+      <Suspense fallback="Loading...">
+        <div className="main">{useRoutes(routes)}</div>
+      </Suspense>
     </div>
   )
 })
