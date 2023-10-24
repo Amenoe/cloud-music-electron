@@ -55,6 +55,7 @@ module.exports = {
     ['config', '基础配置'],
     ['components', '组件模块'],
     ['pages', '调整页面'],
+    ['stores', '状态管理'],
     ['services', '调整服务'],
     ['router', '路由工具'],
     ['utils', 'utils 相关'],
