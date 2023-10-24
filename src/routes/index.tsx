@@ -1,8 +1,10 @@
 import { lazy } from 'react'
 import { Navigate, RouteObject, createBrowserRouter } from 'react-router-dom'
 
+import Loading from '@/components/Loading'
 import Demo from '@/pages/demo'
-import Layout from '@/layouts/layout'
+import { lazyLoad } from './lazyLoad'
+import Layout from '@/layouts/Layout'
 
 const routes: RouteObject[] = [
   {
@@ -15,7 +17,11 @@ const routes: RouteObject[] = [
     children: [
       {
         path: '/discover',
-        Component: lazy(() => import('@/pages/discover')),
+        element: lazyLoad(
+          lazy(() => import('@/pages/discover')),
+          <Loading />
+        ),
+        // Component: lazy(() => import('@/pages/discover')),
         children: [
           {
             path: '/discover',
@@ -45,15 +51,24 @@ const routes: RouteObject[] = [
       },
       {
         path: '/friend',
-        Component: lazy(() => import('@/pages/friend'))
+        element: lazyLoad(
+          lazy(() => import('@/pages/friend')),
+          <Loading />
+        )
       },
       {
         path: '/download',
-        Component: lazy(() => import('@/pages/download'))
+        element: lazyLoad(
+          lazy(() => import('@/pages/download')),
+          <Loading />
+        )
       },
       {
         path: '/mine',
-        Component: lazy(() => import('@/pages/mine'))
+        element: lazyLoad(
+          lazy(() => import('@/pages/mine')),
+          <Loading />
+        )
       },
       {
         path: '/demo',
