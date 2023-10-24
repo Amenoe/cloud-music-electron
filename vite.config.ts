@@ -12,11 +12,16 @@ export default defineConfig({
       '@': path.resolve(__dirname, 'src')
     }
   },
-  // server: {
-  //   host: '0.0.0.0',
-  //   port: 5173,
-  //   open: true
-  // },
+  server: {
+    port: 8013,
+    proxy: {
+      '/api': {
+        target: 'http://localhost:3000',
+        changeOrigin: true,
+        rewrite: (path) => path.replace(/^\/api/, '')
+      }
+    }
+  },
   css: {
     preprocessorOptions: {
       less: {

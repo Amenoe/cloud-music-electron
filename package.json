@@ -8,7 +8,7 @@
     "start": "vite",
     "build": "vite build",
     "preview": "vite preview",
-    "electron": "wait-on tcp:5173 && cross-env NODE_ENV=development electron .",
+    "electron": "wait-on tcp:8013 && cross-env NODE_ENV=development electron .",
     "electron:build": "vite build && electron-builder",
     "dev": "concurrently -k \"pnpm start\" \"pnpm electron\"",
     "prettier": "prettier --write .",

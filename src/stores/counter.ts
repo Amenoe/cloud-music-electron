@@ -25,9 +25,7 @@ const useCounterStore = create<CounterState>()(
         set((state) => ({ counter: state.counter + by }))
       },
       fetch: async () => {
-        const res = await axios.get<any>('http://localhost:3000/search?keywords=AAA')
-        console.log(res)
-
+        const res = await axios.get<any>('http://127.0.0.1:8013/api/search?keywords=AAA')
         set({ dataList: res.data.result.songs })
       }
     }),

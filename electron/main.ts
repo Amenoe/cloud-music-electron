@@ -25,7 +25,7 @@ function createWindow() {
   // mainWindow.loadURL("http://localhost:5173") //这里改成自己的项目启动端口
   mainWindow.loadURL(
     NODE_ENV === 'development'
-      ? 'http://localhost:5173'
+      ? 'http://localhost:8013'
       : `file://${path.join(__dirname, '../dist/index.html')}`
   ) // 新增
   // 打开开发工具

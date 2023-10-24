@@ -9,7 +9,7 @@ import Layout from '@/layouts/Layout'
 const routes: RouteObject[] = [
   {
     path: '/',
-    element: <Navigate to={'/discover'} />
+    element: <Navigate to={'/demo'} />
   },
   {
     path: '/',
