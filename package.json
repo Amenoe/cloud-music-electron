@@ -5,8 +5,10 @@
   "type": "module",
   "main": "./electron/main.ts",
   "scripts": {
-    "start": "vite",
-    "build": "vite build",
+    "start": "vite --mode dev",
+    "build:prod": "vite build --mode prod",
+    "build:dev": "vite build --mode dev",
+    "build:test": "vite build --mode test",
     "preview": "vite preview",
     "electron": "wait-on tcp:8013 && cross-env NODE_ENV=development electron .",
     "electron:build": "vite build && electron-builder",

@@ -17,8 +17,8 @@ module.exports = {
       name: '💎style: 代码格式化'
     },
     {
-      value: '🔂refactor',
-      name: '🔂refactor: 功能重构'
+      value: '🌠refactor',
+      name: '🌠refactor: 功能重构'
     },
     {
       value: '🚀perf',
