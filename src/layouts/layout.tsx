@@ -1,22 +1,66 @@
-import { memo } from 'react'
-import type { ReactNode } from 'react'
-import { Link, Outlet } from 'react-router-dom'
+import React from 'react'
+import { LaptopOutlined, NotificationOutlined, UserOutlined } from '@ant-design/icons'
+import type { MenuProps } from 'antd'
+import { Layout, Menu, theme } from 'antd'
 
-interface IProps {
-  children?: ReactNode
+const { Header, Content, Sider } = Layout
+
+const items2: MenuProps['items'] = [UserOutlined, LaptopOutlined, NotificationOutlined].map(
+  (icon, index) => {
+    const key = String(index + 1)
+
+    return {
+      key: `sub${key}`,
+      icon: React.createElement(icon),
+      label: `subnav ${key}`,
+
+      children: new Array(4).fill(null).map((_, j) => {
+        const subKey = index * 4 + j + 1
+        return {
+          key: subKey,
+          label: `option${subKey}`
+        }
+      })
+    }
+  }
+)
+
+const App: React.FC = () => {
+  const {
+    token: { colorBgContainer, borderRadiusLG }
+  } = theme.useToken()
+
+  return (
+    <Layout>
+      <Header style={{ display: 'flex', alignItems: 'center' }}>
+        <div className="demo-logo" />
+      </Header>
+      <Layout style={{ height: '100%' }}>
+        <Sider width={200} style={{ background: colorBgContainer, height: '100%' }}>
+          <Menu
+            mode="inline"
+            defaultSelectedKeys={['1']}
+            defaultOpenKeys={['sub1']}
+            style={{ height: '100%', borderRight: 0 }}
+            items={items2}
+          />
+        </Sider>
+        <Layout style={{ padding: '24px 24px' }}>
+          <Content
+            style={{
+              padding: 24,
+              margin: 0,
+              minHeight: 280,
+              background: colorBgContainer,
+              borderRadius: borderRadiusLG
+            }}
+          >
+            Content
+          </Content>
+        </Layout>
+      </Layout>
+    </Layout>
+  )
 }
 
-const Layout: React.FC<IProps> = memo(() => {
-  return (
-    <div>
-      <h1>Layout</h1>
-      <Link to={'/discover'}>发现音乐</Link>
-      <Link to={'/mine'}>我的音乐</Link>
-      <Link to={'/friend'}>关注</Link>
-      <Link to={'/download'}>下载客户端</Link>
-      <Outlet />
-    </div>
-  )
-})
-
-export default Layout
+export default App

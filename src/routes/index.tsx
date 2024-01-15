@@ -1,7 +1,7 @@
 import { lazy } from 'react'
 import { Navigate, RouteObject, createBrowserRouter } from 'react-router-dom'
 
-import Loading from '@/components/Loading'
+// import Loading from '@/components/Loading'
 import Demo from '@/pages/demo'
 import { lazyLoad } from './lazyLoad'
 import Layout from '@/layouts/Layout'
@@ -19,7 +19,7 @@ const routes: RouteObject[] = [
         path: '/discover',
         element: lazyLoad(
           lazy(() => import('@/pages/discover')),
-          <Loading />
+          null
         ),
         // Component: lazy(() => import('@/pages/discover')),
         children: [
@@ -53,21 +53,21 @@ const routes: RouteObject[] = [
         path: '/friend',
         element: lazyLoad(
           lazy(() => import('@/pages/friend')),
-          <Loading />
+          null
         )
       },
       {
         path: '/download',
         element: lazyLoad(
           lazy(() => import('@/pages/download')),
-          <Loading />
+          null
         )
       },
       {
         path: '/mine',
         element: lazyLoad(
           lazy(() => import('@/pages/mine')),
-          <Loading />
+          null
         )
       },
       {

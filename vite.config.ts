@@ -13,12 +13,14 @@ export default ({ command, mode }: ConfigEnv): UserConfig => {
   let env = {} as any
   const isBuild = command === 'build'
   if (!isBuild) {
-    env = loadEnv(process.argv[3] === '--mode' ? process.argv[4] : process.argv[3], root)
-    console.log(env)
+    env = loadEnv(process.argv[3] === '--mode' ? process.argv[4] : process.argv[3], `${root}/env`)
+    console.log(1, root)
   } else {
     env = loadEnv(mode, root)
+    console.log(2, env)
   }
   return {
+    envDir: 'env',
     base: env.VITE_BASE_URL,
     plugins: [react()],
     resolve: {
@@ -29,7 +31,7 @@ export default ({ command, mode }: ConfigEnv): UserConfig => {
     server: {
       port: 8013,
       proxy: {
-        '/api': {
+        [env.VITE_BASE_API]: {
           target: 'http://localhost:3000',
           changeOrigin: true,
           rewrite: (path) => path.replace(/^\/api/, '')
